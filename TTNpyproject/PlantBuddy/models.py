@@ -26,7 +26,7 @@ class ServiceModel(models.Model):
     device_id = models.ForeignKey(DeviceModel, models.CASCADE, null=False)
 
     def __str__(self):
-        return self.dev_id
+        return self.device_id
 
 
 class GatewayModel(models.Model):

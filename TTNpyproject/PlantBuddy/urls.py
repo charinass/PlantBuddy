@@ -1,7 +1,7 @@
 from django.urls import path
-from PlantBuddy.views import IndexView
+from PlantBuddy.views import index
 
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index')
+    path('', index.as_view(), name='index'),
 ]
