@@ -23,7 +23,7 @@ class ServiceModel(models.Model):
     voltage_min = models.IntegerField(default=None)
     current_max = models.IntegerField(default=None)
     current_min = models.IntegerField(default=None)
-    dev_id = models.ForeignKey(DeviceModel, null=False)
+    device_id = models.ForeignKey(DeviceModel, models.CASCADE, null=False)
 
     def __str__(self):
         return self.dev_id
@@ -41,8 +41,8 @@ class GatewayModel(models.Model):
 
 
 class ConnectionModel(models.Model):
-    gateway_id = models.ForeignKey(GatewayModel, null=False)
-    service_id = models.ForeignKey(ServiceModel, null=False)
-    device_id = models.ForeignKey(DeviceModel, null=False)
+    gateway_id = models.ForeignKey(GatewayModel, models.CASCADE, null=False)
+    service_id = models.ForeignKey(ServiceModel, models.CASCADE, null=False)
+    device_id = models.ForeignKey(DeviceModel, models.CASCADE, null=False)
     rssi = models.IntegerField(default=None)
     snr = models.IntegerField(default=None)
