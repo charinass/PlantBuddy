@@ -29,4 +29,20 @@ class ServiceModel(models.Model):
         return self.dev_id
 
 
+class GatewayModel(models.Model):
+    gtw_network_id = models.CharField(max_length=200)
+    latitude = models.IntegerField(default=None)
+    longitude = models.IntegerField(default=None)
+    altitude = models.IntegerField(default=None)
+    location = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.gtw_network_id
+
+
+class ConnectionModel(models.Model):
+    gateway_id = models.ForeignKey(GatewayModel, null=False)
+    service_id = models.ForeignKey(ServiceModel, null=False)
+    device_id = models.ForeignKey(DeviceModel, null=False)
+    rssi = models.IntegerField(default=None)
+    snr = models.IntegerField(default=None)
