@@ -5,7 +5,7 @@ from PlantBuddy.models import DeviceModel
 
 
 # Create your views here.
-class index(APIView):
+class IndexView(APIView):
     queryset = DeviceModel.objects.all()
 
     def get(self, request):
